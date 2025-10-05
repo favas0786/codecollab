@@ -8,7 +8,7 @@ import Chat from '../components/Chat';
 import UserList from '../components/UserList'; // 1. Import UserList
 import axios from 'axios';
 
-const SERVER_URL = "http://localhost:5000";
+const SERVER_URL = "https://codecollab-backend.onrender.com";
 const socket = io(SERVER_URL, {
     transports: ['websocket', 'polling']
 });
