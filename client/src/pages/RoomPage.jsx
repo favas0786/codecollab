@@ -58,7 +58,7 @@ const RoomPage = () => {
         // ... (runCode function remains the same)
         setIsLoading(true);
         try {
-            const res = await axios.post('https://codecollab-backend.onrender.com/api/execute', {
+            const res = await axios.post('https://codecollab-backend-9jbs.onrender.com/api/execute', {
                 language: 'javascript',
                 code: code,
             });

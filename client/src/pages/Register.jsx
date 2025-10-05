@@ -24,7 +24,7 @@ const Register = () => {
             return; // Stop the submission
         }
         try {
-            await axios.post('https://codecollab-backend.onrender.com/api/auth/register', {
+            await axios.post('https://codecollab-backend-9jbs.onrender.com/api/auth/register', {
                 username,
                 email,
                 password,

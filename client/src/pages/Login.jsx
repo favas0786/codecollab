@@ -22,7 +22,7 @@ const Login = () => {
         e.preventDefault();
         setError(''); // Clear previous errors
         try {
-            const res = await axios.post('https://codecollab-backend.onrender.com/api/auth/login', {
+            const res = await axios.post('https://codecollab-backend-9jbs.onrender.com/api/auth/login', {
                 email,
                 password,
             });
