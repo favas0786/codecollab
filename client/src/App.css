@@ -1,0 +1,309 @@
+/* Import a modern font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Define a color palette using CSS variables */
+:root {
+    --primary-color: #4aee88; /* A vibrant green */
+    --primary-hover-color: #2b824c;
+    --background-color: #1c1c1c;
+    --text-color: #f4f4f4;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --input-bg: rgba(255, 255, 255, 0.08);
+}
+
+/* Global reset and base styles */
+body {
+    background: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Centering wrapper for form pages */
+.homePageWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Glassmorphism form container */
+.formWrapper {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    width: 450px;
+    max-width: 90%;
+}
+
+.mainLabel {
+    margin-bottom: 35px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Modern Input Box styles */
+.inputBox {
+    padding: 12px;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid transparent;
+    background: var(--input-bg);
+    color: var(--text-color);
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
+}
+
+.inputBox:focus {
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(74, 238, 136, 0.2);
+}
+
+/* Consistent Button styles */
+.btn {
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.joinBtn {
+    background: var(--primary-color);
+    color: #000;
+}
+
+.joinBtn:hover {
+    background: var(--primary-hover-color);
+    color: var(--text-color);
+}
+
+.createInfo {
+    margin: 20px auto 0;
+    text-align: center;
+}
+
+.createNewBtn {
+    color: var(--primary-color);
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+    transition: all 0.2s ease-in-out;
+    border-bottom: 1px solid var(--primary-color);
+    padding-bottom: 2px;
+}
+
+.createNewBtn:hover {
+    color: var(--primary-hover-color);
+    border-bottom: 1px solid var(--primary-hover-color);
+}
+
+/* Room Page grid layout */
+.room-page-wrapper {
+    display: grid;
+    grid-template-columns: 220px 1fr; /* Sidebar, then Editor */
+    height: 100vh;
+    overflow: hidden;
+    
+}
+
+.sidebar {
+    background: #1e1e1e;
+    padding: 24px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.editor-container {
+    height: 100%;
+}
+/* ---- ADD THIS BLOCK FOR THE NEW ROOM PAGE LAYOUT ---- */
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.editor-controls {
+    background-color: #1e1e1e;
+    padding: 8px;
+    text-align: right;
+}
+
+.run-btn {
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    color: #000;
+}
+.run-btn:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+/* Make the editor and output containers split the available space */
+.editor-container {
+    flex: 3; /* Editor takes 3 parts of the space */
+    min-height: 0; /* Important for flexbox overflow */
+}
+
+.output-container {
+    flex: 1; /* Output takes 1 part of the space */
+    background-color: #1e1e1e;
+    padding: 0 16px;
+    border-top: 2px solid #333;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.output-text {
+    white-space: pre-wrap; /* Allows text to wrap */
+    word-wrap: break-word;
+    color: #f4f4f4;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Chat component styling */
+/* Find this class in your CSS file and replace it */
+.chat-container {
+    grid-column: 1 / 2;
+    display: flex;     /* <-- Add this line */
+    flex-grow: 1;      /* <-- Add this line */
+    min-height: 0;     /* <-- Add this for extra stability */
+}
+
+.chat-window {
+    height: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.chat-header {
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--glass-border);
+    margin-bottom: 10px;
+}
+
+.chat-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 10px; /* Space for scrollbar */
+}
+
+/* Chat message bubbles */
+.message {
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+}
+.message-content {
+    padding: 8px 12px;
+    border-radius: 12px;
+    max-width: 90%;
+    word-wrap: break-word;
+}
+#you {
+    align-items: flex-end;
+}
+#you .message-content {
+    background: var(--primary-color);
+    color: #000;
+}
+#other {
+    align-items: flex-start;
+}
+#other .message-content {
+    background: #3a3a3a;
+}
+.message-meta {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 4px;
+}
+
+/* Chat input area */
+/* ---- REPLACE your existing .chat-footer CSS with this block ---- */
+
+.chat-footer {
+    height: 40px;
+    border-top: 1px solid #444;
+    display: flex; /* Crucial: ensures flex layout */
+    align-items: center; /* Vertically aligns items in the middle */
+    padding: 5px 0; /* Add some vertical padding */
+}
+
+.chat-footer input {
+    flex-grow: 1; /* Allows the input to grow and take available space */
+    flex-shrink: 1; /* Allows the input to shrink if needed */
+    min-width: 0; /* Prevents the input from overflowing its container */
+    border: none;
+    padding: 0 1em;
+    background-color: #37474f;
+    color: white;
+    height: 100%; /* Make input fill the footer height */
+    border-radius: 8px;
+}
+
+.chat-footer button {
+    width: 40px;
+    flex-shrink: 0; /* CRUCIAL: Prevents the button from ever shrinking */
+    border: none;
+    background: var(--primary-color);
+    color: #000;
+    margin-left: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    height: 100%; /* Make button fill the footer height */
+}
+
+/* Add this to the end of your CSS file */
+.user-list {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.user-list h4 {
+    margin: 0 0 10px 0;
+}
+
+.user-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.user-list li {
+    background: #3a3a3a;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
