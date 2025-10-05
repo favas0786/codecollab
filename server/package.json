@@ -19,7 +19,6 @@
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.19.0",
-    "piston-client": "^3.0.1",
     "socket.io": "^4.6.1"
   },
   "devDependencies": {
