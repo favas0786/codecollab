@@ -1,11 +1,16 @@
+
+
 const express = require('express');
-const { piston } = require('piston-client'); 
 const router = express.Router();
 
-const client = piston({ server: 'https://emkc.org' });
+
 
 router.post('/', async (req, res) => {
     try {
+        // We dynamically import the package INSIDE the async function
+        const { piston } = await import('piston-client');
+        const client = piston({ server: 'https://emkc.org' });
+
         const { language = 'javascript', code } = req.body;
         if (!code) {
             return res.status(400).json({ error: 'Code is required.' });
@@ -13,8 +18,6 @@ router.post('/', async (req, res) => {
 
         const result = await client.execute(language, code);
         
-        // The result object from piston-client has a 'run' property
-        // which contains stdout and stderr
         res.json(result.run); 
         
     } catch (err) {
